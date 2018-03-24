@@ -1,0 +1,35 @@
+<div class="medium-list">
+    <div class="list-viewer-wrapper">
+      <div class="list-header-title">Register</div>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onLoginSubmit()" novalidate>
+        <div class="form-container">  
+          <mat-form-field>
+              <input id="email"
+                     matInput
+                     formControlName="email"
+                     [(ngModel)]="user.email"
+                     placeholder="Enter your email" />
+            </mat-form-field>
+  
+          <mat-form-field>
+              <input id="password"
+                     matInput
+                     formControlName="password"
+                     [(ngModel)]="user.password"
+                     placeholder="Enter your password"
+                     [type]="hide ? 'password':'text'" />
+                <mat-icon matSuffix (click)="hide = !hide">
+                  {{hide ? 'visibility' : 'visibility_off'}}
+                </mat-icon>
+            </mat-form-field>
+  
+            <button mat-button type="submit" 
+                    class="mat-raised-button mat-primary" 
+                    [disabled]="!loginForm.valid">Login</button>
+            <button mat-button routerLink="/register" class="divider">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
